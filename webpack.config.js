@@ -2,22 +2,23 @@ const path = require('path');
 // Импортируем пакет path
 
 module.exports = {
-  entry: './path/to/my/entry/file.js',
+  entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
+    clean: true,
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.[tj]sx?$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: [ ],
       },
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
   },
 
   devServer: {
