@@ -1,8 +1,12 @@
 const path = require('path'); //для того чтобы превратить относительный путь в абсолютный, мы будем использовать пакет path
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 
 module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
+    plugins: [
+        new ReactRefreshWebpackPlugin(),
+    ],
     devServer: {
         static: path.resolve(__dirname, './dist'), // путь, куда "смотрит" режим разработчика
         // compress: true, // это ускорит загрузку в режиме разработки
